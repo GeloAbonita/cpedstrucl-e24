@@ -96,6 +96,18 @@ int ddelete(int num) {
   return 0;
 }
 
+void deleteAll(int num){
+struct node * n;
+int c = 1;
+n = head;
+while (n != NULL) {
+ddelete(num);
+n = n -> next;
+c++;
+}
+}
+
+
 void insert(int num) {
   int c = 0;
   struct node * temp;
@@ -196,10 +208,8 @@ int main() {
 	  case 7:
 	  	cout << "Enter number to delete: " <<endl;
 	  	cin >> num;
-	  	cout << "Enter location number to delete: " <<endl;
-		cin >> loc;
-	  	
-	  	break;		  
+	  	deleteAll(num);
+		break;		  
       case 8:
         return 0;
       default:
